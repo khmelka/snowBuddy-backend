@@ -9,7 +9,7 @@ connectDB()
 app.use(express.json({extended: false}))
 
 //allow OPTIONS on all resources
-app.use(cors({'origin': 'http://localhost:3000'}));
+app.use(cors({'origin': '*'}));
 
 //routes
 app.use('/users', require('./routes/users'))
