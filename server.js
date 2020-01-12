@@ -2,13 +2,14 @@ const express = require('express')
 const connectDB = require('./config/db')
 const cors = require('cors')
 const app = express()
-const path = require('path');
 
 
 connectDB()
 
 app.use(express.json({extended: false}))
 
+//allow OPTIONS on all resources
+app.use(cors({'origin': 'http://localhost:3000'}));
 
 //routes
 app.use('/users', require('./routes/users'))
@@ -16,8 +17,7 @@ app.use('/auth', require('./routes/auth'))
 app.use('/profile', require('./routes/profile'))
 // app.use('/posts', require('./routes/posts'))
 
-//allow OPTIONS on all resources
-app.options('*', cors())
+
 
 process.env.NODE_ENV === 'production'
  
