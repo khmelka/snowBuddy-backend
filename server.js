@@ -5,12 +5,9 @@ const app = express()
 
 connectDB()
 
-app.use(express.json({extended: false}), cors(corsOptions))
+app.use(express.json({extended: false}))
 
-var corsOptions = {
-    origin: '*',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-  }
+
 
 //routes
 app.use('/users', require('./routes/users'))
