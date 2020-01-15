@@ -42,12 +42,13 @@ async (req,res) => {
     const profileFields = {}
     profileFields.user = req.user.id
     if (sport) profileFields.sport = sport
-    if (skilevel) profileFields.skilevel = skilevel
-    if (snblevel) profileFields.snblevel = snblevel
+    skilevel ? profileFields.skilevel = skilevel : profileFields.skilevel = null;
+    snblevel ? profileFields.snblevel = snblevel : profileFields.snblevel = null;
     if (location) profileFields.location = location
-    if (bio) profileFields.bio = bio
-    if (facebook) profileFields.facebook = facebook
-    if (instagram) profileFields.status = status
+    bio ? profileFields.bio = bio : profileFields.bio = null;
+    facebook ? profileFields.facebook = facebook : profileFields.facebook = null;
+    instagram ? profileFields.instagram = instagram : profileFields.instagram = null;
+
 
     // if (competitions) {profileFields.competitions = competitions.split(',').map(competition => 
     //     competition.trim())}    
