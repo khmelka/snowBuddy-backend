@@ -41,10 +41,10 @@ async (req,res) => {
 
     const profileFields = {}
     profileFields.user = req.user.id
-    if (sport) profileFields.sport = sport
+    sport ? profileFields.sport = sport : profileFields.sport = null;
     skilevel ? profileFields.skilevel = skilevel : profileFields.skilevel = null;
     snblevel ? profileFields.snblevel = snblevel : profileFields.snblevel = null;
-    if (location) profileFields.location = location
+    location ? profileFields.location = location : profileFields.location = null;
     bio ? profileFields.bio = bio : profileFields.bio = null;
     facebook ? profileFields.facebook = facebook : profileFields.facebook = null;
     instagram ? profileFields.instagram = instagram : profileFields.instagram = null;
